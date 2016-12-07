@@ -73,13 +73,17 @@ public class PokerHub extends Hub {
 				Rule rle = new Rule(act.geteGame());
 				// Start the new instance of GamePlay
 				Player pDealer = HubPokerTable.PickRandomPlayerAtTable();
-
+				
 				HubGamePlay = new GamePlay(rle, pDealer.getPlayerID());
 				// Add Players to Game
 				HubGamePlay.setGamePlayers(HubPokerTable.getHashPlayers());
 				// Set the order of players
 				HubGamePlay.setiActOrder(GamePlay.GetOrder(pDealer.getiPlayerPosition()));
-
+				
+				//Set the Deck
+				Deck pDeck = new Deck(); 
+				HubGamePlay.setGameDeck(pDeck);
+				
 
 			case Draw:
 
